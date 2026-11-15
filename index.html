@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trợ Lý AI Gemini - Phiên Bản Trực Tiếp API</title>
     
+    <!-- Favicon trên tab trình duyệt -->
+    <link rel="icon" type="image/jpeg" href="./logo.jpg">
+    
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -67,7 +70,7 @@
             -webkit-text-fill-color: transparent;
         }
         .gemini-border-glow {
-            box-shadow: 0 0 20px rgba(76, 139, 245, 0.15);
+            box-shadow: 0 0 20px rgba(76, 139, 245, 0.25);
         }
         
         /* Markdown formatting overrides */
@@ -136,8 +139,9 @@
     <header class="h-16 border-b border-gemini-border bg-gemini-bg/90 backdrop-blur-md px-4 sm:px-6 flex items-center justify-between z-20 flex-shrink-0">
         <!-- Brand & Model Title -->
         <div class="flex items-center space-x-3">
-            <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-gemini-blue via-gemini-purple to-gemini-pink flex items-center justify-center shadow-lg shadow-gemini-blue/20">
-                <i class="fa-solid fa-sparkles text-white text-base"></i>
+            <!-- LOGO HEADER -->
+            <div class="w-9 h-9 rounded-xl p-0.5 bg-gradient-to-tr from-gemini-blue via-gemini-purple to-gemini-pink shadow-lg shadow-gemini-blue/20 overflow-hidden flex-shrink-0">
+                <img src="./logo.jpg" alt="Logo" class="w-full h-full object-cover rounded-[10px]">
             </div>
             <div>
                 <div class="flex items-center space-x-2">
@@ -180,10 +184,9 @@
                 
                 <!-- Welcome Screen (Visible when chat is empty) -->
                 <div id="welcome-screen" class="h-full flex flex-col items-center justify-center text-center space-y-6 py-8">
-                    <div class="w-16 h-16 rounded-3xl bg-gradient-to-tr from-gemini-blue via-gemini-purple to-gemini-pink p-0.5 shadow-xl gemini-border-glow">
-                        <div class="w-full h-full bg-gemini-bg rounded-[22px] flex items-center justify-center">
-                            <i class="fa-solid fa-sparkles text-2xl gemini-text-gradient"></i>
-                        </div>
+                    <!-- LOGO WELCOME SCREEN -->
+                    <div class="w-20 h-20 rounded-3xl bg-gradient-to-tr from-gemini-blue via-gemini-purple to-gemini-pink p-0.5 shadow-xl gemini-border-glow overflow-hidden">
+                        <img src="./logo.jpg" alt="Logo" class="w-full h-full object-cover rounded-[22px]">
                     </div>
                     
                     <div class="max-w-md space-y-2">
@@ -696,12 +699,12 @@
                         </div>
                     `;
                 } else {
-                    // Gemini AI Message Bubble with Rendered Markdown
+                    // Gemini AI Message Bubble with Rendered Markdown & Custom Logo Avatar
                     const renderedMarkdown = marked.parse(text);
 
                     messageRow.innerHTML = `
-                        <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-gemini-blue via-gemini-purple to-gemini-pink flex items-center justify-center text-white flex-shrink-0 text-xs shadow-md mt-1">
-                            <i class="fa-solid fa-sparkles"></i>
+                        <div class="w-8 h-8 rounded-full p-0.5 bg-gradient-to-tr from-gemini-blue via-gemini-purple to-gemini-pink flex-shrink-0 shadow-md mt-1 overflow-hidden">
+                            <img src="./logo.jpg" alt="AI" class="w-full h-full object-cover rounded-full">
                         </div>
                         <div class="max-w-[88%] sm:max-w-[82%] bg-gemini-card border border-gemini-border text-slate-200 px-4 sm:px-5 py-3.5 rounded-2xl rounded-tl-none shadow-md prose prose-invert">
                             ${renderedMarkdown}
@@ -750,7 +753,7 @@
             pre.appendChild(copyBtn);
         }
 
-        // Loading Typing Indicator
+        // Loading Typing Indicator with Custom Logo
         function addLoadingIndicator() {
             const container = document.getElementById('messages-container');
             const id = 'loading-' + Date.now();
@@ -759,8 +762,8 @@
             loadingRow.id = id;
             loadingRow.className = "flex justify-start items-start space-x-3";
             loadingRow.innerHTML = `
-                <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-gemini-blue via-gemini-purple to-gemini-pink flex items-center justify-center text-white flex-shrink-0 text-xs shadow-md mt-1 animate-pulse">
-                    <i class="fa-solid fa-sparkles"></i>
+                <div class="w-8 h-8 rounded-full p-0.5 bg-gradient-to-tr from-gemini-blue via-gemini-purple to-gemini-pink flex-shrink-0 shadow-md mt-1 animate-pulse overflow-hidden">
+                    <img src="./logo.jpg" alt="AI" class="w-full h-full object-cover rounded-full">
                 </div>
                 <div class="bg-gemini-card border border-gemini-border text-slate-400 px-4 py-3 rounded-2xl rounded-tl-none shadow-md flex items-center space-x-2">
                     <span class="text-xs font-medium">Gemini đang suy nghĩ</span>
